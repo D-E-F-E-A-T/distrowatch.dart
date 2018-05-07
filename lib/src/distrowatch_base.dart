@@ -14,3 +14,8 @@ Future<List<Distro>> getPageRanking(String dataspan) async {
   http.Response response = await http.get('${URL}/index.php?dataspan=${dataspan}');
   return parseDistroList(response.body);
 }
+
+Future<List<Distro>> getLatestReleases(String dataspan) async {
+  http.Response response = await http.get(URL);
+  return parseLatestReleases(response.body);
+}

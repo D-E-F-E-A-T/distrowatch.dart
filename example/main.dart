@@ -5,8 +5,12 @@ main() async {
   // news.forEach((News n) {
   //   print(n.title);
   // });
-  List<Distro> items = await getPageRanking('2017');
+  // List<Distro> items = await getPageRanking('2017');
+  // items.forEach((Distro item) {
+  //   print('${item.position} - ${item.name} => ${item.hpd}');
+  // });
+  List<Distro> items = await getLatestReleases('2017');
   items.forEach((Distro item) {
-    print('${item.position} - ${item.name} => ${item.hpd}');
+    print('${item.name} - ${item.lastVersion} => ${item.lastVersionDate}');
   });
 }
