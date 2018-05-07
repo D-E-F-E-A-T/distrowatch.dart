@@ -5,4 +5,5 @@ library distrowatch;
 
 export 'src/distrowatch_base.dart';
 
+export 'src/model/distro.dart';
 export 'src/model/news.dart';
