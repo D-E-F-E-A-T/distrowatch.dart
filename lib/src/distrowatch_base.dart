@@ -3,6 +3,8 @@ import 'package:distrowatch/distrowatch.dart';
 import 'package:distrowatch/src/constants.dart';
 import 'package:distrowatch/src/wrapper/news.dart';
 import 'package:distrowatch/src/wrapper/distro.dart';
+import 'package:distrowatch/src/wrapper/headline.dart';
+import 'package:distrowatch/src/util/html_parser.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<News>> getNews() async {
@@ -18,4 +20,16 @@ Future<List<Distro>> getPageRanking(String dataspan) async {
 Future<List<Distro>> getLatestReleases(String dataspan) async {
   http.Response response = await http.get(URL);
   return parseLatestReleases(response.body);
+}
+
+Future<List<Headline>> getHeadlines(String newstype, String month, String year) async {
+  Map<String, dynamic> params = {
+    'resource' : 'headlines',
+    'newstype' : newstype,
+    'targetmonth' : month,
+    'targetyear' : year,
+  };
+
+  http.Response response = await http.get(buildURL('${URL}/dwres.php', params));
+  return parseHeadlineList(response.body);
 }
