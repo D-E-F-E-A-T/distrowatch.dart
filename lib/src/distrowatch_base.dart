@@ -5,6 +5,7 @@ import 'package:distrowatch/src/wrapper/news.dart';
 import 'package:distrowatch/src/wrapper/distro.dart';
 import 'package:distrowatch/src/wrapper/headline.dart';
 import 'package:distrowatch/src/wrapper/package.dart';
+import 'package:distrowatch/src/wrapper/faq.dart';
 import 'package:distrowatch/src/util/html_parser.dart';
 import 'package:http/http.dart' as http;
 
@@ -38,4 +39,13 @@ Future<List<Headline>> getHeadlines(String newstype, String month, String year) 
 Future<List<Package>> getPackages() async {
   http.Response response = await http.get('${URL}/packages.php');
   return parsePackageList(response.body);
+}
+
+Future<List<Package>> getFAQ() async {
+  Map<String, dynamic> params = {
+    'resource' : 'faq',
+  };
+
+  http.Response response = await http.get(buildURL('${URL}/dwres.php', params));
+  return parseFAQList(response.body);
 }
