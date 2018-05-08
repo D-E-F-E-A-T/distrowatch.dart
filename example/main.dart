@@ -16,8 +16,13 @@ main() async {
   //   print('${item.name} - ${item.lastVersion} => ${item.lastVersionDate}');
   // });
 
-  List<Headline> items = await getHeadlines('All', '2017', '01');
-  items.forEach((Headline item) {
-    print('${item.title} - ${item.date}');
+  // List<Headline> items = await getHeadlines('All', '2017', '01');
+  // items.forEach((Headline item) {
+  //   print('${item.title} - ${item.date}');
+  // });
+
+  List<Package> items = await getPackages();
+  items.forEach((Package item) {
+    print('${item.name} - ${item.version}');
   });
 }

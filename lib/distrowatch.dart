@@ -8,3 +8,4 @@ export 'src/distrowatch_base.dart';
 export 'src/model/distro.dart';
 export 'src/model/headline.dart';
 export 'src/model/news.dart';
+export 'src/model/package.dart';
