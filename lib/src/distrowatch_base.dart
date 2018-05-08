@@ -41,11 +41,11 @@ Future<List<Package>> getPackages() async {
   return parsePackageList(response.body);
 }
 
-Future<List<Package>> getFAQ() async {
+Future<Map<String, String>> getFAQ() async {
   Map<String, dynamic> params = {
     'resource' : 'faq',
   };
 
   http.Response response = await http.get(buildURL('${URL}/dwres.php', params));
-  return parseFAQList(response.body);
+  return parseFAQMap(response.body);
 }

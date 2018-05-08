@@ -21,8 +21,11 @@ main() async {
   //   print('${item.title} - ${item.date}');
   // });
 
-  List<Package> items = await getPackages();
-  items.forEach((Package item) {
-    print('${item.name} - ${item.version}');
-  });
+  // List<Package> items = await getPackages();
+  // items.forEach((Package item) {
+  //   print('${item.name} - ${item.version}');
+  // });
+
+  Map<String, String> items = await getFAQ();
+  print(items);
 }
